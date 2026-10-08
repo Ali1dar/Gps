@@ -1,4 +1,5 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import type { StateStorage } from 'zustand/middleware';
 
 export const storage = {
   setItem: async (key: string, value: string) => {
@@ -23,4 +24,11 @@ export const storage = {
       console.error('Error removing data', error);
     }
   },
+};
+
+// Adapter used by zustand's persist middleware (settingsStore, locationStore, ...)
+export const zustandMMKV: StateStorage = {
+  getItem: (name) => AsyncStorage.getItem(name),
+  setItem: (name, value) => AsyncStorage.setItem(name, value),
+  removeItem: (name) => AsyncStorage.removeItem(name),
 };
