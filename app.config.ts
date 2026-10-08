@@ -7,6 +7,11 @@ const config: ExpoConfig = {
   orientation: 'portrait',
   userInterfaceStyle: 'automatic',
   newArchEnabled: true,
+  extra: {
+    eas: {
+      projectId: '68915315-2b71-4dcf-bcd8-90f786e2d74c',
+    },
+  },
   android: {
     package: 'com.geodrive.ai',
     permissions: [
